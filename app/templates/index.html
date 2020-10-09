@@ -1,11 +1,13 @@
-<html>
+{% extends "base.html" %}
 
-<head>
-    <title>{{ title }} - Microblog</title>
-</head>
+{% block content %}
+    {% if current_user.is_anonymous %}
+    <h1>Hi, Login to See More</h1>
+    {% else %}
+    <h1>Hi, {{ current_user.username }}!</h1>
+    {% endif %}
 
-<body>
-    <h1>Hello, {{ user.username }}!</h1>
-</body>
-
-</html>
+    {% for item in items %}
+    <div><p>{{ item.name }} ${{ item.price }}</p></div>
+    {% endfor %}
+{% endblock %}
