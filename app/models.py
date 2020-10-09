@@ -37,8 +37,8 @@ class Item(db.Model):
 
       
 class Reviews(db.Model):
-    user_id = db.Column(db.Integer, primary_key=True, db.ForeignKey('User.id'))
-    item_id = db.Column(db.Integer, primary_key=True, db.ForeignKey('Item.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('User.id'), primary_key=True)
+    item_id = db.Column(db.Integer, db.ForeignKey('Item.id'), primary_key=True)
     date_time = db.Column(db.DateTime, nullable=False, primary_key=True)
     location = db.Column(db.String(120))
     stars = db.Column(db.Integer, nullable=False)
@@ -55,8 +55,8 @@ class Reviews(db.Model):
 # reviews = db.relationship('Reviews', backref='item_id')
 
 class SellerReviews(db.Model):
-    user_id = db.Column(db.Integer, primary_key=True, db.ForeignKey('User.id'))
-    seller_id = db.Column(db.Integer, primary_key=True, db.ForeignKey('Seller.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('User.id'), primary_key=True)
+    seller_id = db.Column(db.Integer, db.ForeignKey('Seller.id'), primary_key=True)
     date_time = db.Column(db.DateTime, nullable=False, primary_key=True)
     location = db.Column(db.String(120))
     stars = db.Column(db.Integer, nullable=False)
