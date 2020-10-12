@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ item.name }}</h1>
+    <p>
+        Price: ${{ item.price }}<br>
+        Quantity: {{ item.quantity }}<br>
+    </p>
+
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.item_quantity.label }}<br>
+            {{ form.item_quantity }}<br>
+            {% for error in form.item_quantity.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}
