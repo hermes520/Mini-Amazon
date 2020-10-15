@@ -1,4 +1,0 @@
-name: cs316
-dependencies:
-  - flask
-  - flask-sqlalchemy
