@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ current_user.username }}'s Cart</h1>
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+        {% for item in cart %}
+        <tr>
+            <td><div><a class="action" href="{{ url_for('item', id=item.Item.id) }}">{{ item.Item.name }}</a></div></td>
+            <td>${{ item.Item.price }}</td>
+            <td>{{ item.Cart.cart_quantity }}</td>
+            <td><a class="action" href="{{ url_for('delete_from_cart', item_id=item.Item.id) }}">Delete</a></td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td>Total</td>
+            <td>${{ price }}</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+
+
+{% endblock %}

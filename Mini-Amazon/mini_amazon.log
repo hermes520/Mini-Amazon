@@ -1,0 +1,2 @@
+INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:76.204.57.157 - - [18/Oct/2020 15:15:54] "GET /1/item HTTP/1.1" 200 -
